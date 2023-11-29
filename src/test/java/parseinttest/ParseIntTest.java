@@ -13,51 +13,40 @@ public class ParseIntTest {
 
     @ParameterizedTest
     @CsvSource({"123,123", "-123,-123"})
-    public void positiveTest(String source, Integer expected) {
-        int test = parseInt(source);
-        assertEquals(expected, test);
+    public void parseIntTest_Positive(String source, Integer expected) {
+        int actual = parseInt(source);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void emptyTest() {
-        String s = "";
+    public void parseIntTest_OnEmpty() {
+        String string = "";
         NumberFormatException thrown = Assertions.assertThrows(NumberFormatException.class, () -> {
-            parseInt(s);
+            parseInt(string);
         }, "NumberFormatException error was expected");
 
-        assertEquals("Строка не может быть пустым: " + s, thrown.getMessage());
+        assertEquals("Строка не может быть пустым: " + string, thrown.getMessage());
     }
 
 
     @ParameterizedTest
     @ValueSource(strings = {"2147483648", "-2147483649"})
-    public void positiveIndexOfBoundExceptionTest(String s) {
+    public void parseIntTest_ThrowsIndexOfBoundException(String string) {
         IndexOutOfBoundsException thrown = Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
-            parseInt(s);
+            parseInt(string);
         }, "IndexOutOfBoundException error was expected");
 
         assertEquals("Значение вышло за допустимый диапазон: ", thrown.getMessage());
     }
 
-    @Test
-    public void numberFormatterExceptionTest() {
-        String s = "One";
+    @ParameterizedTest
+    @ValueSource(strings = {"One", "r"})
+    public void parseIntTest_ThrowsNumberFormatterException(String string) {
         NumberFormatException thrown = Assertions
                 .assertThrows(NumberFormatException.class, () -> {
-                    parseInt(s);
+                    parseInt(string);
                 }, "NumberFormatException error was expected");
 
-        assertEquals("Неправильный формат значения: " + s, thrown.getMessage());
-    }
-
-    @Test
-    public void oneCharacterNumberFormatterExceptionTest() {
-        String s = "r";
-        NumberFormatException thrown = Assertions
-                .assertThrows(NumberFormatException.class, () -> {
-                    parseInt(s);
-                }, "NumberFormatException error was expected");
-
-        assertEquals("Неправильный формат значения: " + s, thrown.getMessage());
+        assertEquals("Неправильный формат значения: " + string, thrown.getMessage());
     }
 }
