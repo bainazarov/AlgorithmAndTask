@@ -1,9 +1,9 @@
-package conversionTemperatureTest;
+package conversiontemperaturetest;
 
 import org.junit.jupiter.api.Test;
-import team.mediasoft.intership.algorythms.algorithmandtask.conversionTemperature.CelsiusToFahrenheit;
-import team.mediasoft.intership.algorythms.algorithmandtask.conversionTemperature.CelsiusToKelvin;
-import team.mediasoft.intership.algorythms.algorithmandtask.conversionTemperature.Converter;
+import team.mediasoft.intership.algorythms.algorithmandtask.conversiontemperature.CelsiusToFahrenheit;
+import team.mediasoft.intership.algorythms.algorithmandtask.conversiontemperature.CelsiusToKelvin;
+import team.mediasoft.intership.algorythms.algorithmandtask.conversiontemperature.Converter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

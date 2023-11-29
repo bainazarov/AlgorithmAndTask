@@ -1,4 +1,4 @@
-package team.mediasoft.intership.algorythms.algorithmandtask.conversionTemperature;
+package team.mediasoft.intership.algorythms.algorithmandtask.conversiontemperature;
 
 public class CelsiusToKelvin implements Converter {
 
