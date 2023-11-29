@@ -8,18 +8,18 @@ public class ParseInt {
         int number = 0;
         boolean isNegative = false;
 
-        if(Objects.equals(s, "")) {
+        if (Objects.equals(s, "")) {
             throw new NumberFormatException("Строка не может быть пустым: " + s);
         }
 
-        if(s.charAt(0) == '-') {
+        if (s.charAt(0) == '-') {
             isNegative = true;
             s = s.substring(1); // Подменяем первый индекс на 1
         }
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if(!Character.isDigit(c)) { // проверка является ли значение цифрой
+            if (!Character.isDigit(c)) { // проверка является ли значение цифрой
                 throw new NumberFormatException("Неправильный формат значения: " + s);
             }
             int digit = s.charAt(i) - '0'; // Таким образом приводим к числовому значению
