@@ -1,4 +1,4 @@
-package parseInt;
+package team.mediasoft.intership.algorythms.algorithmandtask.parseint;
 
 import java.util.Objects;
 

@@ -3,25 +3,19 @@ package parseIntTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static parseInt.ParseInt.parseInt;
+import static team.mediasoft.intership.algorythms.algorithmandtask.parseint.ParseInt.parseInt;
 
 public class ParseIntTest {
 
-    @Test
-    public void positiveTest() {
-        String s = "123";
-        int test = parseInt(s);
-        assertEquals(123, test);
-    }
-
-    @Test
-    public void negativeTest() {
-        String s = "-123";
-        int test = parseInt(s);
-        assertEquals(-123, test);
+    @ParameterizedTest
+    @CsvSource({"123,123", "-123,-123"})
+    public void positiveTest(String source, Integer expected) {
+        int test = parseInt(source);
+        assertEquals(expected, test);
     }
 
     @Test
@@ -36,25 +30,14 @@ public class ParseIntTest {
 
 
     @ParameterizedTest
-    @ValueSource(strings = {"2147483648"})
-    public void positiveiIndexOfBoundExceptionTest(String s) {
+    @ValueSource(strings = {"2147483648", "-2147483649"})
+    public void positiveIndexOfBoundExceptionTest(String s) {
         IndexOutOfBoundsException thrown = Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
             parseInt(s);
         }, "IndexOutOfBoundException error was expected");
 
         assertEquals("Значение вышло за допустимый диапазон: ", thrown.getMessage());
     }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"-2147483649"})
-    public void negativeIndexOfBoundExceptionTest(String s) {
-        IndexOutOfBoundsException thrown = Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
-            parseInt(s);
-        }, "IndexOutOfBoundException error was expected");
-
-        assertEquals("Значение вышло за допустимый диапазон: ", thrown.getMessage());
-    }
-
 
     @Test
     public void numberFormatterExceptionTest() {
