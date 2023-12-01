@@ -11,7 +11,7 @@ public class ConversionTemperatureTest {
     @Test
     public void celsiusToKelvinTest_Positive() {
         Converter converter = new CelsiusToKelvin();
-        double actual = converter.converter(15);
+        double actual = converter.convert(15);
 
         assertEquals(288.15, actual);
     }
@@ -19,7 +19,7 @@ public class ConversionTemperatureTest {
     @Test
     public void celsiusToFahrenheitTest_Positive() {
         Converter converter = new CelsiusToFahrenheit();
-        double actual = converter.converter(15);
+        double actual = converter.convert(15);
 
         assertEquals(59, actual);
 

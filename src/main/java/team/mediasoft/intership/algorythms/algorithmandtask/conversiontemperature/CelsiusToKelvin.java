@@ -3,7 +3,7 @@ package team.mediasoft.intership.algorythms.algorithmandtask.conversiontemperatu
 public class CelsiusToKelvin implements Converter {
 
     @Override
-    public double converter(double celsius) {
+    public double convert(double celsius) {
         return celsius + 273.15;
     }
 }
