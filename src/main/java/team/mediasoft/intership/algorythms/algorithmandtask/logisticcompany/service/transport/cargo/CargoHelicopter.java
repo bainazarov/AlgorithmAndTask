@@ -1,8 +1,9 @@
 package team.mediasoft.intership.algorythms.algorithmandtask.logisticcompany.service.transport.cargo;
 
 import team.mediasoft.intership.algorythms.algorithmandtask.logisticcompany.dto.Cargo;
+import team.mediasoft.intership.algorythms.algorithmandtask.logisticcompany.service.transport.Transport;
 
-public class CargoHelicopter extends TransportCargo implements CargoLoad {
+public class CargoHelicopter implements Transport,CargoLoad {
     @Override
     public void move() {
         System.out.println("Грузовой вертолет перемещается");

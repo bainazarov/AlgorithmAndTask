@@ -1,8 +1,9 @@
 package team.mediasoft.intership.algorythms.algorithmandtask.logisticcompany.service.transport.cargo;
 
 import team.mediasoft.intership.algorythms.algorithmandtask.logisticcompany.dto.Cargo;
+import team.mediasoft.intership.algorythms.algorithmandtask.logisticcompany.service.transport.Transport;
 
-public class CargoTruck extends TransportCargo implements CargoLoad {
+public class CargoTruck implements Transport,CargoLoad {
     @Override
     public void loadCargo(Cargo cargo) {
         System.out.println("Грузовик загружен грузом: " + cargo.getType());
